@@ -1,0 +1,22 @@
+[Unit]
+Description=City API Node.js Service
+After=network.target
+
+[Service]
+Type=simple
+User=cityapi
+Group=cityapi
+WorkingDirectory=/opt/city-api
+Environment=NODE_ENV=production
+Environment=PORT=3000
+ExecStart=/usr/bin/infisical run --env=prod -- /usr/bin/node src/server.js
+Restart=always
+RestartSec=5
+
+# Conservative limits for a small VM
+MemoryMax=180M
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

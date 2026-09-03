@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS city (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name VARCHAR(100) NOT NULL,
+  country VARCHAR(100) NOT NULL,
+  date TIMESTAMPTZ NOT NULL DEFAULT now(),
+  moddate TIMESTAMPTZ NULL
+);
